@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Interactive Travel Companion Built with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot (288)](https://github.com/user-attachments/assets/503237be-b95e-449e-9629-cf4653cc9748)
 
-## Available Scripts
 
-In the project directory, you can run:
+It's your travel buddy, always with you! It shows real-time locations of nearby restaurants, hotels, and attractions, helping you explore your surroundings with ease.
 
-### `npm start`
+![GitHub last commit](https://img.shields.io/github/last-commit/rahu1-ku/travel_companion)
+![NPM Version](https://img.shields.io/npm/v/react)
+![GitHub top language](https://img.shields.io/github/languages/top/rahu1-ku/travel_companion)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Our project utilizes ![Static Badge](https://img.shields.io/badge/OpenStreetMaps-green)
+ and ![Static Badge](https://img.shields.io/badge/React%20Leaflet-red) to create an interactive map. By integrating the Travel Advisor API, we retrieve and display points of interest within the map bounds.
 
-### `npm test`
+We design informative cards using Material UI that highlight essential details such as name, location, ratings, pricing, awards, phone number, and cuisines, along with direct links to each restaurant's website.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Markers on the map indicate the exact locations of restaurants and hotels, showing key details like the name, photo, and contact information. Additionally, our search feature, powered by the Geocode Earth API and the ge-autocomplete component, allows users to easily find and explore a variety of cities and attractions.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Pre-requisites 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install Node.js go to https://nodejs.org/en/download/package-manager
 
-### `npm run eject`
+Check and update node to latest version using-
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  npm install npm@latest -g
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Get the "Travel Advisor" api key from https://rapidapi.com/hub
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Also get the GeoCode api key from https://geocode.earth/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Run Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clone the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  git clone https://github.com/rahu1-ku/travel_companion
+```
 
-### Code Splitting
+Go to the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  cd my-project
+```
 
-### Analyzing the Bundle Size
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  npm install
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Create the .env file in the root with the api keys from RapidApi and Geocode earth.
 
-### Advanced Configuration
+```bash
+  REACT_APP_TRAVEL_ADVISOR_API_KEY = YOUR_KEY
+  REACT_APP_GEOCODE_EARTH_API_KEY = YOUR_KEY
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Start the development server
 
-### Deployment
+```bash
+  npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Live preview at http://localhost:3000/ (on your system)
 
-### `npm run build` fails to minify
+## Tech Tree for React Travel Companion
+![Static Badge](https://img.shields.io/badge/React%20JS-orange)
+![Static Badge](https://img.shields.io/badge/Material%20UI-darkgreen)
+![Static Badge](https://img.shields.io/badge/Axios-lightblue)
+![Static Badge](https://img.shields.io/badge/JavaScript-blue)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Static Badge](https://img.shields.io/badge/React%20Leaflet-green)
+![Static Badge](https://img.shields.io/badge/React-dom-green)
+![Static Badge](https://img.shields.io/badge/Geocode%20Earth-Autocomplete-red)
+### Frontend
+- **React JS**: Core framework for building the user interface.
+  - **React Leaflet**: Library for map integration using OpenStreetMap.
+    - **Map API Integration**: Fetch and display map layers with x, y, z indices.
+    - **Markers and Popups**: Add markers for restaurants, hotels, and attractions with detailed popups (name, photo, phone number).
+  - **Material UI**: Used for designing cards that display location information such as name, ratings, pricing, awards, and website links.
+  - **Geocode Earth API & ge-autocomplete**: Implements global search for cities and attractions with autocomplete suggestions.
+- **State Management**:
+  - **React Hooks**: Manage component state (map bounds, search results, filters).
+
+### Backend/External APIs
+- **Travel Advisor API**: Fetches restaurant, hotel, and attraction data within map bounds (location, ratings, pricing, cuisines).
+
+### Features
+- **Filtering & Sorting**: Allows filtering between restaurants, hotels, and attractions, with sorting by user ratings.
+- **Responsive UI**: Ensures fast and smooth map interaction for a seamless user experience.
+- **Dynamic Search**: Search for locations worldwide using ge-autocomplete and display results on the map.
+
+
+## Preview
+![Screenshot (290)](https://github.com/user-attachments/assets/8dbe7a39-2d71-45ad-b04c-3f98712cfd0e)
+
+
+![Screenshot (291)](https://github.com/user-attachments/assets/62f2a989-4a1d-4c18-93bd-2ee4c56065ea)
+
+![Screenshot (294)](https://github.com/user-attachments/assets/aae6eac4-a985-4d23-a450-f742da1bc64d)
+
+
+## Acknowledgements
+
+ - [©OpenStreetMaps](https://www.openstreetmap.org/about) for the maps
+ - [©Rapid API](https://rapidapi.com/hub) for travel advisor API
+ - [©Geocode Earth](https://geocode.earth/) for autocomplete API
+
